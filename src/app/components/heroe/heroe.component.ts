@@ -4,8 +4,7 @@ import { HeroesService } from '../../servicios/heroes.service';
 
 @Component({
   selector: 'app-heroe',
-  templateUrl: './heroe.component.html',
-  styleUrls: ['./heroe.component.css']
+  templateUrl: './heroe.component.html'
 })
 export class HeroeComponent{
 
@@ -14,8 +13,9 @@ export class HeroeComponent{
   constructor(private activatedRoute: ActivatedRoute,private heroeService: HeroesService) {
 
     this.activatedRoute.params.subscribe(params => {
-      // console.log(params);
+      
       this.heroe = heroeService.getHeroe(params['id']);
+      console.log(this.heroe);
     });
    }
 
